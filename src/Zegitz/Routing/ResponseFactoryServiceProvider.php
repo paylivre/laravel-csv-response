@@ -1,6 +1,6 @@
 <?php
 
-namespace Neoxia\Routing;
+namespace Zegitz\Routing;
 
 use Illuminate\Support\ServiceProvider;
 

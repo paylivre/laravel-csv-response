@@ -1,6 +1,3 @@
-[![Latest Stable Version](http://img.shields.io/github/release/neoxia/laravel-csv-response.svg)](https://packagist.org/packages/neoxia/laravel-csv-response)
-[![Build Status](http://img.shields.io/travis/neoxia/laravel-csv-response.svg)](https://travis-ci.org/neoxia/laravel-csv-response)
-[![Coverage Status](http://img.shields.io/coveralls/neoxia/laravel-csv-response.svg)](https://coveralls.io/github/neoxia/laravel-csv-response?branch=master)
 
 ## Laravel CSV Response
 
@@ -29,14 +26,14 @@ If you want to generate CSV (or Excel) files with a lot of options and more robu
 Require this package with composer using the following command:
 
 ```
-composer require neoxia/laravel-csv-response
+composer require zegitz/laravel-csv-response
 ```
 
 As of Laravel 5.5, this package will be automatically discovered and registered.
 For older version of Laravel, add the service provider in `config/app.php`.
 
 ```PHP
-Neoxia\Routing\ResponseFactoryServiceProvider::class,
+Zegitz\Routing\ResponseFactoryServiceProvider::class,
 ```
 
 ## Usage

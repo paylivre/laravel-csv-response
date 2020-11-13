@@ -1,5 +1,5 @@
 {
-    "name": "neoxia/laravel-csv-response",
+    "name": "zegitz/laravel-csv-response",
     "license": "MIT",
     "description": "Add a CSV response type to Laravel",
     "require": {
@@ -14,7 +14,7 @@
     },
     "autoload": {
          "psr-4": {
-            "Neoxia\\": "src/Neoxia/"
+            "Zegitz\\": "src/Zegitz/"
         }
     },
     "extra": {

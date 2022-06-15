@@ -3,7 +3,6 @@
 namespace Paylivre\CsvResponse;
 
 use Illuminate\Support\ServiceProvider;
-use Routing\ResponseFactory;
 
 class ResponseFactoryServiceProvider extends ServiceProvider
 {

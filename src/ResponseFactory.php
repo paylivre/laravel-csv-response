@@ -84,7 +84,7 @@ class ResponseFactory extends BaseResponseFactory
             $csv = implode("\r\n", $csvArray);
         }
 
-        return \Zegitz\Routing\mb_convert_encoding($csv, $options['encoding']);
+        return mb_convert_encoding($csv, $options['encoding']);
     }
 
     /**

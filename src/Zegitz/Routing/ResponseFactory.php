@@ -11,13 +11,10 @@ class ResponseFactory extends BaseResponseFactory
     /**
      * Return a new CSV response from the application.
      *
-     * @param  \Illuminate\Support\Collection|array|string  $data
      * @param  int  $status
-     * @param  array  $headers
-     * @param  array  $options
      * @return \Illuminate\Http\Response
      */
-    public function csv($data, $status = 200, array $headers = [], array $options = [])
+    public function csv(\Illuminate\Support\Collection|array|string $data, $status = 200, array $headers = [], array $options = [])
     {
         if ($this->dataIsEmpty($data)) {
             return $this->make('No Content', 204);
@@ -34,7 +31,6 @@ class ResponseFactory extends BaseResponseFactory
     /**
      * Return an array of options with default ones if not set
      *
-     * @param  array  $customOptions
      * @return array
      */
     public function parseOptions(array $customOptions)
@@ -55,8 +51,12 @@ class ResponseFactory extends BaseResponseFactory
      * @param  \Illuminate\Support\Collection|array|string  $data
      * @return bool
      */
-    protected function dataIsEmpty($data)
+    protected function dataIsEmpty(\Illuminate\Support\Collection|array|string $data): bool
     {
+        if (is_array($data)) {
+            return empty($data);
+        }
+
         if (method_exists($data, 'isEmpty')) {
             return $data->isEmpty();
         }
@@ -67,11 +67,9 @@ class ResponseFactory extends BaseResponseFactory
     /**
      * Convert any data into a CSV string
      *
-     * @param  \Illuminate\Support\Collection|array|string  $data
-     * @param  array  $options
      * @return string
      */
-    protected function formatCsv($data, array $options)
+    protected function formatCsv(\Illuminate\Support\Collection|array|string $data, array $options)
     {
         if (is_string($data)) {
             $csv = $data;
@@ -93,12 +91,9 @@ class ResponseFactory extends BaseResponseFactory
     /**
      * Add a CSV header to an array based on data
      *
-     * @param  array  $csvArray
-     * @param  \Illuminate\Support\Collection|array  $data
-     * @param  array  $options
      * @return void
      */
-    protected function addHeaderToCsvArray(array &$csvArray, $data, array $options)
+    protected function addHeaderToCsvArray(array &$csvArray, \Illuminate\Support\Collection|array $data, array $options)
     {
         $firstRowData = $this->getRowData($data[0]);
 
@@ -112,12 +107,9 @@ class ResponseFactory extends BaseResponseFactory
     /**
      * Add CSV rows to an array based on data
      *
-     * @param  array  $csvArray
-     * @param  \Illuminate\Support\Collection|array  $data
-     * @param  array  $options
      * @return void
      */
-    protected function addRowsToCsvArray(array &$csvArray, $data, array $options)
+    protected function addRowsToCsvArray(array &$csvArray, \Illuminate\Support\Collection|array $data, array $options)
     {
         foreach ($data as $row) {
             $rowData = $this->getRowData($row);
@@ -144,8 +136,6 @@ class ResponseFactory extends BaseResponseFactory
     /**
      * Escape quotes and join cells of an array to make a csv row string
      *
-     * @param  array  $row
-     * @param  array  $options
      * @return string
      */
     protected function rowDataToCsvString(array $row, array $options)
@@ -162,8 +152,6 @@ class ResponseFactory extends BaseResponseFactory
     /**
      * Get HTTP headers for a CSV response
      *
-     * @param  array  $customHeaders
-     * @param  array  $options
      * @return void
      */
     protected function createCsvHeaders(array $customHeaders, array $options)

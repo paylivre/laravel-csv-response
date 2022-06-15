@@ -13,8 +13,6 @@ class ResponseFactoryServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('Illuminate\Contracts\Routing\ResponseFactory', function ($app) {
-            return new ResponseFactory($app['Illuminate\Contracts\View\Factory'], $app['redirect']);
-        });
+        $this->app->singleton(\Illuminate\Contracts\Routing\ResponseFactory::class, fn($app) => new ResponseFactory($app[\Illuminate\Contracts\View\Factory::class], $app['redirect']));
     }
 }

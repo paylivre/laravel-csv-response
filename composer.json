@@ -1,5 +1,5 @@
 {
-    "name": "zegitz/laravel-csv-response",
+    "name": "paylivre/laravel-csv-response",
     "license": "MIT",
     "description": "Add a CSV response type to Laravel",
     "require": {
@@ -14,13 +14,13 @@
     },
     "autoload": {
          "psr-4": {
-            "Zegitz\\": "src/Zegitz/"
+            "Paylivre\\CsvResponse\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Zegitz\\Routing\\ResponseFactoryServiceProvider"
+                "Paylivre\\CsvResponse\\ResponseFactoryServiceProvider"
             ]
         }
     },

@@ -33,7 +33,7 @@ As of Laravel 5.5, this package will be automatically discovered and registered.
 For older version of Laravel, add the service provider in `config/app.php`.
 
 ```PHP
-Zegitz\Routing\ResponseFactoryServiceProvider::class,
+Routing\ResponseFactoryServiceProvider::class,
 ```
 
 ## Usage

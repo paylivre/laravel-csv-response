@@ -1,10 +1,9 @@
 <?php
 
-namespace Zegitz\Routing;
+namespace Paylivre\CsvResponse;
 
-use Illuminate\Support\Arr;
-use Illuminate\Support\Collection;
 use Illuminate\Routing\ResponseFactory as BaseResponseFactory;
+use Illuminate\Support\Arr;
 
 class ResponseFactory extends BaseResponseFactory
 {
@@ -85,7 +84,7 @@ class ResponseFactory extends BaseResponseFactory
             $csv = implode("\r\n", $csvArray);
         }
 
-        return mb_convert_encoding($csv, $options['encoding']);
+        return \Zegitz\Routing\mb_convert_encoding($csv, $options['encoding']);
     }
 
     /**

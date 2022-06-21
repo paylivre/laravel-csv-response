@@ -26,7 +26,7 @@ If you want to generate CSV (or Excel) files with a lot of options and more robu
 Require this package with composer using the following command:
 
 ```
-composer require zegitz/laravel-csv-response
+composer require paylivre/laravel-csv-response
 ```
 
 As of Laravel 5.5, this package will be automatically discovered and registered.
